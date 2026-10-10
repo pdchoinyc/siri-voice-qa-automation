@@ -1,13 +1,14 @@
 def classify_intent(text: str) -> str:
     text = text.lower().strip()
 
-    if "weather" in text or "날씨" in text:
-        return "WEATHER"
+    intent_keywords = {
+        "WEATHER": ["weather", "날씨", "天気"],
+        "TIMER": ["timer", "타이머", "タイマー"],
+        "ALARM": ["alarm", "알람", "アラーム"],
+    }
 
-    if "timer" in text or "타이머" in text:
-        return "TIMER"
-
-    if "alarm" in text or "알람" in text:
-        return "ALARM"
+    for intent, keywords in intent_keywords.items():
+        if any(keyword.lower() in text for keyword in keywords):
+            return intent
 
     return "UNKNOWN"

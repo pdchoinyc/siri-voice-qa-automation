@@ -1,0 +1,56 @@
+[
+  {
+    "id": "EN_001",
+    "locale": "en-US",
+    "utterance": "What's the weather today?",
+    "expected_intent": "WEATHER"
+  },
+  {
+    "id": "EN_002",
+    "locale": "en-US",
+    "utterance": "Set a timer for 5 minutes",
+    "expected_intent": "TIMER"
+  },
+  {
+    "id": "EN_003",
+    "locale": "en-US",
+    "utterance": "Set an alarm for tomorrow",
+    "expected_intent": "ALARM"
+  },
+  {
+    "id": "KO_001",
+    "locale": "ko-KR",
+    "utterance": "오늘 날씨 알려줘",
+    "expected_intent": "WEATHER"
+  },
+  {
+    "id": "KO_002",
+    "locale": "ko-KR",
+    "utterance": "5분 타이머 설정해줘",
+    "expected_intent": "TIMER"
+  },
+  {
+    "id": "KO_003",
+    "locale": "ko-KR",
+    "utterance": "내일 아침 알람 설정해줘",
+    "expected_intent": "ALARM"
+  },
+  {
+    "id": "JA_001",
+    "locale": "ja-JP",
+    "utterance": "今日の天気を教えて",
+    "expected_intent": "WEATHER"
+  },
+  {
+    "id": "JA_002",
+    "locale": "ja-JP",
+    "utterance": "5分のタイマーをセットして",
+    "expected_intent": "TIMER"
+  },
+  {
+    "id": "JA_003",
+    "locale": "ja-JP",
+    "utterance": "明日のアラームを設定して",
+    "expected_intent": "ALARM"
+  }
+]
