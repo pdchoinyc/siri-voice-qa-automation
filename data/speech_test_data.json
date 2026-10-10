@@ -6,7 +6,10 @@
     "language": "ko",
     "audio_file": "audio_samples/test_ko.m4a",
     "reference": "오늘 날씨 알려줘",
-    "expected_intent": "WEATHER"
+    "expected_intent": "WEATHER",
+    "max_wer": 0.1,
+    "max_cer": 0.1,
+    "max_latency_seconds": 5.0
   },
   {
     "test_id": "STT-EN-001",
@@ -14,7 +17,10 @@
     "language": "en",
     "audio_file": "audio_samples/test_en.m4a",
     "reference": "What's the weather today?",
-    "expected_intent": "WEATHER"
+    "expected_intent": "WEATHER",
+    "max_wer": 0.1,
+    "max_cer": 0.1,
+    "max_latency_seconds": 5.0
   },
   {
     "test_id": "STT-JA-001",
@@ -22,6 +28,9 @@
     "language": "ja",
     "audio_file": "audio_samples/test_ja.m4a",
     "reference": "今日の天気を教えて",
-    "expected_intent": "WEATHER"
+    "expected_intent": "WEATHER",
+    "max_wer": 0.1,
+    "max_cer": 0.1,
+    "max_latency_seconds": 5.0
   }
 ]
