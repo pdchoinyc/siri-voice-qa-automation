@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Python virtual environment
+.venv/
+
+# Pytest generated reports
+report.html
+
+# Python cache
+__pycache__/
+.pytest_cache/
