@@ -1,0 +1,23 @@
+
+{
+  "description": "Initial STT performance baseline from 10 measured runs per locale",
+  "iterations": 10,
+  "max_regression_percent": 20.0,
+  "baselines": {
+    "STT-KO-001": {
+      "locale": "ko-KR",
+      "avg_latency_seconds": 0.5547,
+      "p95_latency_seconds": 0.5978
+    },
+    "STT-EN-001": {
+      "locale": "en-US",
+      "avg_latency_seconds": 0.5088,
+      "p95_latency_seconds": 0.5928
+    },
+    "STT-JA-001": {
+      "locale": "ja-JP",
+      "avg_latency_seconds": 0.5379,
+      "p95_latency_seconds": 0.7023
+    }
+  }
+}
