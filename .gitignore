@@ -228,3 +228,9 @@ report.html
 # Python cache
 __pycache__/
 .pytest_cache/
+
+# Local audio recordings
+audio_samples/*.m4a
+
+# Generated speech QA reports
+reports/*.csv

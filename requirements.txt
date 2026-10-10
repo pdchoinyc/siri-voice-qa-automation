@@ -1,2 +1,5 @@
 pytest==8.4.2
 pytest-html==4.1.1
+faster-whisper==1.2.1
+av==16.0.1
+jiwer
