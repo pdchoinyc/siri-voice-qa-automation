@@ -1,6 +1,7 @@
 
 import csv
 import json
+import math
 from pathlib import Path
 
 
@@ -21,6 +22,58 @@ def calculate_regression_percent(baseline, current):
 
     return (current - baseline) / baseline * 100
 
+def validate_benchmark_data(benchmark_results, baselines):
+    seen_ids = set()
+
+    for benchmark in benchmark_results:
+        test_id = benchmark["test_id"]
+
+        if test_id in seen_ids:
+            raise ValueError(f"Duplicate test ID: {test_id}")
+
+        seen_ids.add(test_id)
+
+        if test_id not in baselines:
+            raise ValueError(f"Missing baseline for: {test_id}")
+
+        baseline = baselines[test_id]
+
+        if benchmark["locale"] != baseline["locale"]:
+            raise ValueError(f"Locale mismatch: {test_id}")
+
+        for metric in METRICS:
+            try:
+                current_value = float(benchmark[metric])
+                baseline_value = float(baseline[metric])
+            except (ValueError, TypeError, KeyError) as error:
+                raise ValueError(
+                    f"Invalid metric data: {test_id}, {metric}"
+                ) from error
+
+            if not math.isfinite(current_value):
+                raise ValueError(
+                    f"Invalid metric data: {test_id}, {metric}"
+                )
+
+            if not math.isfinite(baseline_value):
+                raise ValueError(
+                    f"Invalid metric data: {test_id}, {metric}"
+                )
+
+            if current_value < 0 or baseline_value <= 0:
+                raise ValueError(
+                    f"Invalid metric data: {test_id}, {metric}"
+                )
+
+    missing_ids = set(baselines) - seen_ids
+
+    if missing_ids:
+        raise ValueError(
+            f"Missing benchmark results for: {sorted(missing_ids)}"
+        )
+
+
+
 
 def main():
     with BASELINE_FILE.open("r", encoding="utf-8") as file:
@@ -35,6 +88,7 @@ def main():
 
     baselines = baseline_data["baselines"]
     threshold = float(baseline_data["max_regression_percent"])
+    validate_benchmark_data(benchmark_results, baselines)
 
     results = []
     failed = False
